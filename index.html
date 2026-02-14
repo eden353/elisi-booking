@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindbook - Intelligent Reservations</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</head>
+<body class="text-[#1D1D1F]">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md border-b border-white/20 transition-all duration-300">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-[#1D1D1F] rounded-lg flex items-center justify-center text-white">
+          <iconify-icon icon="solar:infinity-linear" width="20" height="20"></iconify-icon>
+        </div>
+        <span class="text-lg font-semibold tracking-tight">Mindbook</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-sm font-medium text-zinc-900 hover:text-black transition-colors">Features</a>
+        <a href="#solutions" class="text-sm font-medium text-zinc-900 hover:text-black transition-colors">Solutions</a>
+        <a href="#contact" class="text-sm font-medium bg-[#1D1D1F] text-white px-5 py-2.5 rounded-full hover:bg-black/80 transition-all shadow-sm">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative w-full h-screen min-h-[700px] bg-black flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-60">
+      <img src="images/hero-salon.jpg" class="w-full h-full object-cover scale-105 animate-[pulse_10s_ease-in-out_infinite]" alt="Salon Ambiance">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 z-10"></div>
+
+    <div class="relative z-20 max-w-6xl mx-auto px-6 text-center space-y-8 mt-16">
+      <h1 class="text-6xl md:text-7xl leading-[1.05] fade-in-up font-semibold text-white tracking-tight">
+        One click. Zero effort. Total AI.
+      </h1>
+      <p class="text-xl text-white/80 max-w-2xl mx-auto tracking-wide fade-in-up delay-100">
+        Your intelligent reservation system. <br class="hidden md:block"> Remove the clutter. Add clarity.
+      </p>
+
+      <div class="pt-8 fade-in-up delay-200">
+        <div class="flex items-center bg-white/20 backdrop-blur-2xl border border-white/30 p-2 rounded-full max-w-md mx-auto shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] ring-1 ring-white/10">
+          <input id="hero-email" type="email" placeholder="Enter your email to book demo" class="w-full bg-transparent border-none text-base text-white placeholder-white/70 focus:ring-0 px-6 py-3 outline-none">
+
+          <!-- Animated Gradient Beam Button -->
+          <button id="hero-try-btn" class="group relative flex items-center justify-center shrink-0 overflow-hidden rounded-full px-8 py-3.5 transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(234,88,12,0.5)] focus:outline-none">
+            <div class="absolute inset-0 -z-20 overflow-hidden rounded-full p-[1px]">
+              <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#ea580c_360deg)]" style="animation: beam-spin 3s linear infinite;"></div>
+              <div class="absolute inset-[1px] rounded-full bg-black"></div>
+            </div>
+            <div class="absolute inset-[2px] -z-10 overflow-hidden rounded-full bg-zinc-950">
+              <div class="absolute inset-0 bg-gradient-to-b from-zinc-800/60 to-transparent"></div>
+              <div class="absolute inset-0 opacity-30 mix-blend-overlay" style="background-image: radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 12px 12px; animation: dots-move 8s linear infinite"></div>
+              <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 rounded-full bg-orange-500/10 blur-2xl transition-colors duration-500 group-hover:bg-orange-500/30 pointer-events-none"></div>
+            </div>
+            <span class="relative z-10 text-sm font-medium tracking-widest text-white/90 uppercase transition-colors group-hover:text-white">Try It</span>
+            <iconify-icon icon="solar:arrow-right-linear" width="16" class="relative z-10 ml-2 text-white transition-transform duration-300 group-hover:translate-x-1"></iconify-icon>
+          </button>
+        </div>
+        <p class="mt-4 text-xs text-white/40 uppercase tracking-wider">14-day free trial &bull; No credit card</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features Grid Section -->
+  <section class="overflow-hidden bg-white/50 border-t border-white/60 pt-24 pb-24 relative" id="features">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row gap-10 items-start justify-between mb-20">
+        <h2 class="text-4xl lg:text-5xl leading-[1.05] font-semibold text-[#1D1D1F] tracking-tight max-w-3xl">
+          Core capabilities: <span class="text-zinc-500">Building</span> the future of connection.
+        </h2>
+        <a href="#" class="group flex items-center gap-2 mt-2 text-sm font-medium text-[#1D1D1F] border-b border-gray-300 hover:border-black pb-1 transition-all">
+          Start Project
+          <iconify-icon icon="solar:arrow-right-up-linear" class="text-lg"></iconify-icon>
+        </a>
+      </div>
+
+      <!-- Banner Card -->
+      <div class="h-[520px] bg-white bg-[url(images/banner-card.png)] bg-cover border border-gray-100 hover:border-gray-200 rounded-[32px] my-6 p-6 shadow-[0_2px_20px_-4px_rgba(0,0,0,0.05)] transition-colors"></div>
+
+      <!-- Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Card 1: AI-Powered Booking -->
+        <div class="flex flex-col h-[520px] bg-white border border-gray-100 hover:border-gray-200 rounded-[32px] p-6 shadow-[0_2px_20px_-4px_rgba(0,0,0,0.05)] transition-colors justify-between">
+          <div>
+            <div class="flex items-center justify-between w-full mb-8">
+              <span class="text-sm font-medium tracking-wide border border-zinc-500/20 bg-white/5 backdrop-blur-md px-3 py-1 rounded-full">AI Powered</span>
+            </div>
+            <h3 class="text-2xl font-semibold tracking-tight text-[#1D1D1F] mb-6 leading-tight">AI-Driven Booking Management</h3>
+            <p class="text-base text-zinc-600/90 leading-relaxed max-w-[260px]">Configure your storefront and backend systems effortlessly through natural conversation.</p>
+          </div>
+          <div class="w-full h-40 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl border border-gray-100 relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+            <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-center">
+              <iconify-icon icon="solar:chat-square-code-linear" class="text-2xl text-zinc-800"></iconify-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Voice Integration -->
+        <div class="group relative h-[520px] rounded-[32px] overflow-hidden bg-black shadow-lg">
+          <img src="images/voice-tech.jpg" alt="Voice Tech" class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-overlay transition-transform duration-1000 group-hover:scale-110 group-hover:opacity-100">
+          <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80"></div>
+          <div class="absolute inset-0 z-10 flex flex-col text-white bg-[url(images/voice-card-bg.webp)] bg-cover bg-center p-8 justify-between">
+            <div class="flex items-start justify-between">
+              <span class="text-sm font-medium tracking-wide border border-white/20 bg-white/5 backdrop-blur-md px-3 py-1 rounded-full">Voice Integration</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-medium mb-4">Front Desk OS</h3>
+              <p class="text-sm leading-relaxed text-white/70">Automated bookings via natural voice commands. Hands-free efficiency for fast-paced environments.</p>
+            </div>
+          </div>
+          <img src="images/light-beam.jpg" alt="Orange Light Beam Background" class="absolute inset-0 z-[2] w-full h-full object-cover mix-blend-overlay opacity-50 transition-transform duration-1000 group-hover:scale-110">
+          <div class="absolute inset-0 z-[3] pointer-events-none bg-gradient-to-b from-black/20 via-black/40 to-black/90"></div>
+        </div>
+
+        <!-- Card 3: Intelligent Backend -->
+        <div class="group relative h-[520px] bg-white rounded-[32px] border border-gray-100 hover:border-gray-200 p-8 flex flex-col items-center justify-between overflow-hidden transition-colors shadow-[0_2px_20px_-4px_rgba(0,0,0,0.05)]">
+          <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+            <svg viewBox="0 0 100 100" class="w-full h-full stroke-black fill-none" stroke-width="0.5">
+              <path d="M0,50 Q25,25 50,50 T100,50"></path>
+              <path d="M0,30 Q25,55 50,30 T100,30"></path>
+              <path d="M0,70 Q25,45 50,70 T100,70"></path>
+            </svg>
+          </div>
+          <div class="relative z-10 w-full text-center">
+            <div class="flex items-center justify-between w-full mb-8">
+              <span class="text-sm font-medium tracking-wide border border-zinc-500/20 bg-white/5 backdrop-blur-md px-3 py-1 rounded-full">Intelligent Backend</span>
+            </div>
+          </div>
+          <div class="relative flex-1 w-full px-4 flex flex-col justify-center space-y-3">
+            <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+              <div class="w-[75%] h-full bg-[#1D1D1F] rounded-full"></div>
+            </div>
+            <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+              <div class="w-[90%] h-full bg-[#1D1D1F] opacity-60 rounded-full"></div>
+            </div>
+            <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+              <div class="w-[50%] h-full bg-[#1D1D1F] opacity-30 rounded-full"></div>
+            </div>
+            <div class="pt-2 text-center">
+              <span class="text-3xl font-semibold tracking-tighter text-[#1D1D1F]">100%</span>
+              <span class="block mt-1 text-xs text-zinc-500">Uptime Efficiency</span>
+            </div>
+          </div>
+          <button class="relative w-full mt-auto py-3.5 bg-[#1D1D1F] text-white text-sm font-bold rounded-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] transform transition-all duration-300 group-hover:-translate-y-1 hover:bg-black shadow-black/10">View Architecture</button>
+        </div>
+
+        <!-- Card 4: Customizable Templates -->
+        <div class="group relative h-[520px] bg-[#1D1D1F] rounded-[32px] p-6 flex flex-col justify-between overflow-hidden shadow-xl text-white bg-[url(images/templates-card-bg.webp)] bg-cover bg-center">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 transition-colors duration-500 group-hover:bg-indigo-500/20"></div>
+          <div>
+            <div class="flex items-start justify-between">
+              <span class="text-sm font-medium tracking-wide border border-white/20 bg-white/5 backdrop-blur-md px-3 py-1 rounded-full">Templates</span>
+            </div>
+            <h3 class="text-2xl font-semibold tracking-tight text-zinc-50 my-6 leading-tight">Rich Custom Templates</h3>
+            <p class="text-base text-zinc-200/90 leading-relaxed max-w-[260px]">Customize dashboard layouts to fit your needs, or design specifically for your brand identity.</p>
+          </div>
+          <div class="relative z-10 mt-8 space-y-4 text-sm text-white/60">
+            <div class="flex justify-between items-center border-b border-white/10 pb-3 cursor-pointer group/item hover:text-white transition-colors">
+              <span>Minimal Layout</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="opacity-0 transition-opacity group-hover/item:opacity-100"></iconify-icon>
+            </div>
+            <div class="flex justify-between items-center border-b border-white/10 pb-3 cursor-pointer group/item hover:text-white transition-colors">
+              <span>High Density View</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="opacity-0 transition-opacity group-hover/item:opacity-100"></iconify-icon>
+            </div>
+            <div class="flex justify-between items-center border-b border-white/10 pb-3 cursor-pointer group/item hover:text-white transition-colors">
+              <span>Retail Flow</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="opacity-0 transition-opacity group-hover/item:opacity-100"></iconify-icon>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry Use Cases -->
+  <section class="bg-white w-full pt-24 pb-24" id="solutions">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div class="flex flex-col md:flex-row justify-between md:items-end gap-8 mb-16">
+        <div>
+          <h2 class="text-4xl font-semibold tracking-tight text-[#1D1D1F] mb-4">Designed for your craft.</h2>
+          <p class="text-lg text-slate-500">Versatile solutions for service-based businesses.</p>
+        </div>
+        <div class="flex gap-2">
+          <button id="carousel-prev" class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:border-black transition-colors">
+            <iconify-icon icon="solar:arrow-left-linear" class="text-xl"></iconify-icon>
+          </button>
+          <button id="carousel-next" class="flex hover:bg-gray-800 transition-colors text-white bg-black w-12 h-12 rounded-full items-center justify-center">
+            <iconify-icon icon="solar:arrow-right-linear" class="text-xl"></iconify-icon>
+          </button>
+        </div>
+      </div>
+
+      <div id="carousel-track" class="flex gap-8 overflow-x-auto pb-12 snap-x no-scrollbar scroll-smooth">
+        <!-- Case 1: Studios & Salons -->
+        <div class="min-w-[320px] md:min-w-[400px] snap-center">
+          <div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden mb-6">
+            <img src="images/salon.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Salon">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1D1D1F]">Studios &amp; Salons</h3>
+          <p class="mt-2 text-zinc-500">Manage stylists and seats with ease.</p>
+        </div>
+
+        <!-- Case 2: Fitness Centers -->
+        <div class="min-w-[320px] md:min-w-[400px] snap-center">
+          <div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden mb-6">
+            <img src="images/fitness.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Fitness Center">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1D1D1F]">Fitness Centers</h3>
+          <p class="mt-2 text-zinc-500">Scheduling and reminders for your clients.</p>
+        </div>
+
+        <!-- Case 3: Restaurants -->
+        <div class="min-w-[320px] md:min-w-[400px] snap-center">
+          <div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden mb-6">
+            <img src="images/restaurant.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Restaurant">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1D1D1F]">Restaurants</h3>
+          <p class="mt-2 text-zinc-500">Table management and reservation flows.</p>
+        </div>
+
+        <!-- Case 4: Wellness Centers -->
+        <div class="min-w-[320px] md:min-w-[400px] snap-center">
+          <div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden mb-6">
+            <img src="images/wellness.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Wellness">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            <div class="absolute bottom-6 left-6 text-white opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+              <span class="block mb-2 text-sm font-medium tracking-wider uppercase">Wellness</span>
+              <h4 class="text-2xl font-semibold">Spas &amp; Resorts</h4>
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1D1D1F]">Wellness Centers</h3>
+          <p class="mt-2 text-slate-500">Class bookings and private sessions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trial Booking Form -->
+  <section id="contact" class="flex justify-center bg-neutral-800 py-32 px-6">
+    <div class="relative w-full max-w-5xl bg-gray-50/5 rounded-[40px] border border-white/10 ring-1 ring-white/5 backdrop-blur-3xl p-10 lg:p-20 flex flex-col lg:flex-row gap-16 items-center shadow-2xl overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/10 to-transparent"></div>
+
+      <div class="relative z-10 flex-1 space-y-8">
+        <h2 class="text-4xl lg:text-5xl font-semibold tracking-tight text-white">
+          Ready to organize <br>
+          <span class="text-white/50">your schedule?</span>
+        </h2>
+        <div class="flex items-center gap-4 text-zinc-400">
+          <div class="flex -space-x-3">
+            <img src="images/avatars/woman-1.jpg" class="w-10 h-10 rounded-full border-2 border-white/10" alt="User">
+            <img src="images/avatars/man-1.jpg" class="w-10 h-10 rounded-full border-2 border-white/10" alt="User">
+            <img src="images/avatars/woman-2.jpg" class="w-10 h-10 rounded-full border-2 border-white/10" alt="User">
+          </div>
+          <p class="text-sm font-medium text-white/80">Join over 2,000 businesses today.</p>
+        </div>
+      </div>
+
+      <div class="relative z-10 w-full max-w-md flex-1">
+        <form class="space-y-6">
+          <div class="space-y-2">
+            <label for="glass-name" class="ml-1 text-sm font-medium text-white/80">Name</label>
+            <input type="text" id="glass-name" placeholder="Eden Elisi" class="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-white/20 focus:bg-white/10 transition-all">
+          </div>
+          <div class="space-y-2">
+            <label for="glass-email" class="ml-1 text-sm font-medium text-white/80">Work Email</label>
+            <input type="email" id="glass-email" placeholder="name@company.com" class="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-white/20 focus:bg-white/10 transition-all">
+          </div>
+          <button id="contact-trial-btn" type="button" class="w-full bg-white text-black font-semibold rounded-full py-4 shadow-lg hover:bg-zinc-200 transition-transform hover:scale-[1.01] active:scale-[0.99] shadow-black/10">Start Free Trial</button>
+          <div class="flex items-center justify-center pt-4">
+            <button type="button" class="w-full flex items-center justify-center gap-3 border border-white/10 rounded-full px-6 py-3 text-sm font-medium text-white/70 hover:bg-white/10 transition-colors">
+              <iconify-icon icon="lucide:circle-play" width="18" height="18"></iconify-icon>
+              Book Demo
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-100 py-16 px-6 lg:px-12">
+    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 bg-[#1D1D1F] rounded-md flex items-center justify-center text-white">
+          <iconify-icon icon="solar:infinity-linear" width="16" height="16"></iconify-icon>
+        </div>
+        <span class="text-sm font-semibold tracking-tight">Mindbook</span>
+      </div>
+      <div class="flex gap-8 text-xs font-medium text-slate-500">
+        <a href="#" class="hover:text-black transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-black transition-colors">Terms of Use</a>
+        <a href="#" class="hover:text-black transition-colors">Support</a>
+        <a href="#" class="hover:text-black transition-colors">Twitter</a>
+      </div>
+      <div class="text-xs text-slate-400">&copy; 2024 Mindbook Inc. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Success Modal -->
+  <div id="success-modal" class="fixed inset-0 z-[100] flex items-center justify-center px-6 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div class="modal-content relative w-full max-w-md bg-[#1D1D1F] rounded-[32px] border border-white/10 ring-1 ring-white/5 p-10 text-center shadow-2xl transform scale-95 transition-transform duration-300">
+      <div class="w-14 h-14 mx-auto mb-6 bg-white/10 rounded-full flex items-center justify-center">
+        <iconify-icon icon="solar:check-circle-linear" width="32" height="32" class="text-white"></iconify-icon>
+      </div>
+      <p class="text-lg font-medium text-white leading-relaxed">
+        You've successfully booked a demo.<br>We'll notify you as soon as we launch.<br>Thank you for your support.
+      </p>
+      <button id="modal-confirm-btn" class="mt-8 w-full bg-white text-black font-semibold rounded-full py-3.5 shadow-lg hover:bg-zinc-200 transition-transform hover:scale-[1.01] active:scale-[0.99]">OK</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
