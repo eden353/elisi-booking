@@ -1,0 +1,15 @@
+{
+  "name": "ai-booking-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "wrangler deploy --dry-run",
+    "cf:typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "wrangler": "^4.34.0"
+  }
+}
