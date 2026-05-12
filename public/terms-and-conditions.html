@@ -6,7 +6,9 @@
   <title>Terms and Conditions - SuperRina</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Inter+Tight:wght@100..900&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,27 +18,30 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
-<body class="text-[#1D1D1F]">
+<body class="legal-page text-[#1D1D1F]">
 
   <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md border-b border-white/20 transition-all duration-300">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
-      <a href="/" class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-[#1D1D1F] rounded-lg flex items-center justify-center text-white">
-          <iconify-icon icon="solar:infinity-linear" width="20" height="20"></iconify-icon>
+  <header class="legal-header hero-section relative w-full bg-[#FDFCFC]">
+    <nav class="hero-nav relative z-50">
+      <div class="hero-nav-inner mx-auto flex items-center justify-between">
+        <div class="hero-nav-left flex-1 flex items-center justify-between">
+          <a href="/" class="flex items-center gap-1.5 shrink-0">
+            <img src="images/figma/logo.svg" alt="SuperRina" class="w-8 h-8">
+            <span class="hero-brand">SuperRina</span>
+          </a>
+          <div class="hero-nav-links hidden md:flex items-center gap-9">
+            <a href="/#product" class="hero-nav-link">Product</a>
+            <a href="/#features" class="hero-nav-link">Features</a>
+            <a href="/#platform" class="hero-nav-link">Platform</a>
+          </div>
         </div>
-        <span class="text-lg font-semibold tracking-tight">SuperRina</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="/#features" class="text-sm font-medium text-zinc-900 hover:text-black transition-colors">Features</a>
-        <a href="/#solutions" class="text-sm font-medium text-zinc-900 hover:text-black transition-colors">Solutions</a>
-        <a href="/#contact" class="text-sm font-medium bg-[#1D1D1F] text-white px-5 py-2.5 rounded-full hover:bg-black/80 transition-all shadow-sm">Get Started</a>
+        <a href="/#contact" class="hero-cta">Get started</a>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- Content -->
-  <main class="pt-32 pb-24 px-6">
+  <main class="legal-main pb-24 px-6">
     <div class="max-w-3xl mx-auto">
       <h1 class="text-4xl lg:text-5xl font-semibold tracking-tight mb-4">Terms and Conditions</h1>
       <p class="text-sm text-zinc-400 mb-16">Last updated: April 7, 2026</p>
@@ -167,22 +172,25 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t border-gray-100 py-16 px-6 lg:px-12">
-    <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-      <a href="/" class="flex items-center gap-2">
-        <div class="w-6 h-6 bg-[#1D1D1F] rounded-md flex items-center justify-center text-white">
-          <iconify-icon icon="solar:infinity-linear" width="16" height="16"></iconify-icon>
-        </div>
-        <span class="text-sm font-semibold tracking-tight">SuperRina</span>
+  <!-- Footer (Figma) -->
+  <footer class="site-footer">
+    <div class="site-footer-shell mx-auto">
+      <a href="/" class="site-footer-brand" aria-label="SuperRina home">
+        <span class="site-footer-mark" aria-hidden="true">
+          <span class="site-footer-mark-glyph">
+            <img src="images/figma/footer-logo-left.svg" alt="" class="site-footer-mark-left">
+            <img src="images/figma/footer-logo-right.svg" alt="" class="site-footer-mark-right">
+          </span>
+        </span>
+        <span class="site-footer-wordmark">SuperRina</span>
       </a>
-      <div class="flex gap-8 text-xs font-medium text-slate-500">
-        <a href="/privacy-policy" class="hover:text-black transition-colors">Privacy Policy</a>
-        <a href="/terms-and-conditions" class="hover:text-black transition-colors">Terms of Use</a>
-        <a href="#" class="hover:text-black transition-colors">Support</a>
-        <a href="#" class="hover:text-black transition-colors">Twitter</a>
-      </div>
-      <div class="text-xs text-slate-400">&copy; 2026 AriesApp, Inc. All rights reserved.</div>
+
+      <nav class="site-footer-nav" aria-label="Footer">
+        <a href="/privacy-policy" class="site-footer-link">Privacy Policy</a>
+        <a href="/terms-and-conditions" class="site-footer-link">Terms of Use</a>
+      </nav>
+
+      <p class="site-footer-copy">&copy; 2026 SuperRina Inc. All rights reserved.</p>
     </div>
   </footer>
 

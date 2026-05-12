@@ -11,5 +11,8 @@
   },
   "devDependencies": {
     "wrangler": "^4.34.0"
+  },
+  "dependencies": {
+    "@paper-design/shaders-react": "^0.0.76"
   }
 }
