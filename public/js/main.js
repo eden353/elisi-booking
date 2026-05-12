@@ -286,6 +286,82 @@ function setupFeatureParallaxScenes() {
   requestUpdate();
 }
 
+function setupPlatformParallaxScene() {
+  var scene = document.querySelector('[data-platform-scene]');
+
+  if (!scene) {
+    return;
+  }
+
+  var desktopQuery = window.matchMedia('(min-width: 721px)');
+  var reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var ticking = false;
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function easeOutCubic(value) {
+    return 1 - Math.pow(1 - value, 3);
+  }
+
+  function setSceneValues(rawProgress) {
+    var progress = easeOutCubic(rawProgress);
+    var bgProgress = easeOutCubic(clamp((rawProgress - 0.02) / 0.58, 0, 1));
+    var copyProgress = easeOutCubic(clamp((rawProgress - 0.08) / 0.3, 0, 1));
+    var dashboardProgress = easeOutCubic(clamp((rawProgress - 0.18) / 0.38, 0, 1));
+    var phoneProgress = easeOutCubic(clamp((rawProgress - 0.28) / 0.42, 0, 1));
+
+    scene.style.setProperty('--platform-progress', progress.toFixed(4));
+    scene.style.setProperty('--platform-bg-progress', bgProgress.toFixed(4));
+    scene.style.setProperty('--platform-copy-progress', copyProgress.toFixed(4));
+    scene.style.setProperty('--platform-dashboard-progress', dashboardProgress.toFixed(4));
+    scene.style.setProperty('--platform-phone-progress', phoneProgress.toFixed(4));
+    scene.classList.toggle('is-platform-scene-active', rawProgress > 0.01 && rawProgress < 0.995);
+  }
+
+  function showScene() {
+    scene.style.setProperty('--platform-progress', '1');
+    scene.style.setProperty('--platform-bg-progress', '1');
+    scene.style.setProperty('--platform-copy-progress', '1');
+    scene.style.setProperty('--platform-dashboard-progress', '1');
+    scene.style.setProperty('--platform-phone-progress', '1');
+    scene.classList.remove('is-platform-scene-active');
+  }
+
+  function updateScene() {
+    ticking = false;
+
+    if (!desktopQuery.matches || reducedMotionQuery.matches) {
+      showScene();
+      return;
+    }
+
+    var rect = scene.getBoundingClientRect();
+    var viewportHeight = getDesktopStageHeight();
+    var travel = rect.height + viewportHeight * 0.45;
+    var rawProgress = clamp((viewportHeight * 0.82 - rect.top) / travel, 0, 1);
+    setSceneValues(rawProgress);
+  }
+
+  function requestUpdate() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(updateScene);
+    }
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+
+  if (desktopQuery.addEventListener) {
+    desktopQuery.addEventListener('change', requestUpdate);
+    reducedMotionQuery.addEventListener('change', requestUpdate);
+  }
+
+  requestUpdate();
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   if (window.lucide) {
     window.lucide.createIcons();
@@ -304,6 +380,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setupHeroProductJourney();
   setupPinnedHeroNav();
   setupFeatureParallaxScenes();
+  setupPlatformParallaxScene();
 
   if (heroSection) {
     var revealHero = function () {

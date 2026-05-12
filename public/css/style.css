@@ -1210,7 +1210,14 @@ html.js .hero-email-form {
    ======================================== */
 .platform-section {
   --pl-w: min(100vw, 1440px);
-  background: #FDFCFC;
+  --platform-progress: 0;
+  --platform-bg-progress: 0;
+  --platform-copy-progress: 0;
+  --platform-dashboard-progress: 0;
+  --platform-phone-progress: 0;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0) 34%),
+    linear-gradient(180deg, #FCFBFA 0%, #F8F3F3 52%, #F6F1EF 100%);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Inter Tight", sans-serif;
   color: #000;
   position: relative;
@@ -1220,8 +1227,55 @@ html.js .hero-email-form {
 .platform-stage {
   max-width: 1440px;
   width: 100%;
-  height: calc(1024 * var(--pl-w) / 1440);
+  height: calc(1023 * var(--pl-w) / 1440);
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.platform-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.platform-atmosphere::before,
+.platform-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.platform-atmosphere::before {
+  background:
+    radial-gradient(circle at 56% 28%, rgba(255, 234, 216, 0.92), rgba(255, 234, 216, 0) 22%),
+    radial-gradient(circle at 54% 44%, rgba(240, 193, 255, 0.38), rgba(240, 193, 255, 0) 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0) 38%);
+  opacity: 0.48;
+}
+
+.platform-atmosphere::after {
+  inset: calc(94 * var(--pl-w) / 1440) calc(80 * var(--pl-w) / 1440) auto;
+  height: calc(576 * var(--pl-w) / 1440);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 65%);
+  filter: blur(calc(44 * var(--pl-w) / 1440));
+  opacity: 0.28;
+}
+
+.platform-scene-art {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  opacity: 0.92;
+  mix-blend-mode: screen;
+  filter: saturate(1.08) contrast(1.04);
+  transform: translateX(-50%);
 }
 
 .platform-heading {
@@ -1233,6 +1287,13 @@ html.js .hero-email-form {
   flex-direction: column;
   align-items: center;
   gap: calc(36 * var(--pl-w) / 1440);
+  z-index: 3;
+  opacity: calc(0.32 + var(--platform-copy-progress) * 0.68);
+  transform:
+    translate3d(0, calc((1 - var(--platform-copy-progress)) * 84px), 0)
+    scale(calc(0.94 + var(--platform-copy-progress) * 0.06));
+  filter: blur(calc((1 - var(--platform-copy-progress)) * 14px));
+  will-change: transform, opacity;
 }
 
 .platform-title {
@@ -1244,6 +1305,7 @@ html.js .hero-email-form {
   text-align: center;
   color: rgba(0, 0, 0, 0.9);
   text-wrap: balance;
+  text-shadow: 0 calc(20 * var(--pl-w) / 1440) calc(46 * var(--pl-w) / 1440) rgba(255, 255, 255, 0.42);
 }
 
 .platform-subtitle {
@@ -1264,7 +1326,21 @@ html.js .hero-email-form {
   width: calc(986 * var(--pl-w) / 1440);
   height: calc(775 * var(--pl-w) / 1440);
   object-fit: cover;
-  z-index: 1;
+  z-index: 2;
+  opacity: 1;
+  transform:
+    translate3d(
+      calc((var(--platform-dashboard-progress) - 1) * 72px),
+      calc((1 - var(--platform-dashboard-progress)) * 156px),
+      0
+    )
+    rotate(calc((var(--platform-dashboard-progress) - 1) * 5.5deg))
+    scale(calc(0.92 + var(--platform-dashboard-progress) * 0.08));
+  transform-origin: 18% 18%;
+  filter:
+    drop-shadow(0 calc(48 * var(--pl-w) / 1440) calc(96 * var(--pl-w) / 1440) rgba(71, 31, 58, 0.18))
+    drop-shadow(0 calc(16 * var(--pl-w) / 1440) calc(28 * var(--pl-w) / 1440) rgba(255, 255, 255, 0.55));
+  will-change: transform;
 }
 
 .platform-phone {
@@ -1274,7 +1350,21 @@ html.js .hero-email-form {
   width: calc(348 * var(--pl-w) / 1440);
   height: calc(570.05 * var(--pl-w) / 1440);
   object-fit: cover;
-  z-index: 2;
+  z-index: 4;
+  opacity: 1;
+  transform:
+    translate3d(
+      calc((1 - var(--platform-phone-progress)) * 84px),
+      calc((1 - var(--platform-phone-progress)) * 220px),
+      0
+    )
+    rotate(calc((1 - var(--platform-phone-progress)) * 9deg))
+    scale(calc(0.86 + var(--platform-phone-progress) * 0.14));
+  transform-origin: 50% 100%;
+  filter:
+    drop-shadow(0 calc(54 * var(--pl-w) / 1440) calc(110 * var(--pl-w) / 1440) rgba(39, 16, 32, 0.28))
+    drop-shadow(0 calc(10 * var(--pl-w) / 1440) calc(24 * var(--pl-w) / 1440) rgba(255, 255, 255, 0.35));
+  will-change: transform;
 }
 
 /* ========================================
@@ -1538,12 +1628,37 @@ html.js .hero-email-form {
     align-items: center;
     gap: 36px;
   }
+  .platform-atmosphere {
+    inset: 0 0 auto;
+    height: 460px;
+  }
+  .platform-atmosphere::before {
+    opacity: 0.7;
+    transform: none;
+  }
+  .platform-atmosphere::after {
+    inset: 80px 12px auto;
+    height: 260px;
+    opacity: 0.36;
+    transform: none;
+  }
+  .platform-scene-art {
+    left: 50%;
+    top: 0;
+    width: auto;
+    height: 100%;
+    opacity: 0.92;
+    transform: translateX(-50%);
+  }
   .platform-heading {
     position: relative;
     left: auto;
     top: auto;
     width: 100%;
     gap: 20px;
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
   .platform-title    { font-size: clamp(28px, 7vw, 40px); }
   .platform-subtitle { font-size: 16px; }
@@ -1556,6 +1671,8 @@ html.js .hero-email-form {
     aspect-ratio: 986 / 775;
     max-width: 600px;
     margin-top: 0;
+    opacity: 1;
+    transform: none;
   }
   .platform-phone { display: none; }
 }
