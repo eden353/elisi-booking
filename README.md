@@ -19,6 +19,7 @@
 ├── README.md
 ├── package.json
 ├── public
+│   ├── backups/
 │   ├── index.html
 │   ├── css/
 │   ├── js/
@@ -49,6 +50,9 @@ npm run dev
 npm run deploy
 ```
 
+当前 Worker 会把主站根路径继续指向最新 landing page，并把旧版快照保存在 `/backup/`。
+本仓库当前的备份快照来自 `main` 分支，静态文件位于 `public/backups/main-2026-05-12/`。
+
 首次部署前请确认：
 
 1. 已执行 `npx wrangler login`
@@ -59,6 +63,7 @@ npm run deploy
 
 - 这是 Cloudflare Workers 项目，不要按 Pages 的思路新增 Pages 专属配置。
 - 纯静态内容放在 `public/`。
+- 如需保留旧版页面，优先在 `public/backups/` 新增静态快照，并在 `src/index.js` 里补对应路由。
 - Worker 自定义逻辑放在 `src/index.js`。
 - 如果后续要增加 API、表单提交、重写、鉴权或边缘逻辑，统一在 Worker 层扩展。
 - 如果改动影响运行方式，请同步更新 `README.md` 和 `RTK.md`。

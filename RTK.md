@@ -12,6 +12,7 @@
 - 以仓库内的 `wrangler.toml` 为准，不要优先依赖 Cloudflare Dashboard 上的手工配置。
 - 部署入口是 `src/index.js`。
 - 静态页面、样式、脚本和图片都从 `public/` 提供。
+- 旧版线上页面如需保留，统一以 `public/backups/` 静态快照 + `src/index.js` 路由重写的方式处理。
 
 ## Development Rules
 
@@ -39,5 +40,6 @@
 ## Change Checklist
 
 - 改完页面后，检查 `public/` 下的资源引用路径是否仍然正确。
+- 如果新增或更新了页面备份，确认 `/backup/` 及其内部资源路径都能正常访问。
 - 改完 Worker 后，确认非静态路径不会意外影响现有 landing page。
 - 新增 Cloudflare 能力时，把配置和用法写进 `README.md`。

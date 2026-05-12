@@ -315,7 +315,10 @@ html.js .hero-email-form {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
+  z-index: 2147483640;
+  isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -328,11 +331,13 @@ html.js .hero-email-form {
   width: min(calc(100% - 24px), 1416px);
   transform: translate3d(-50%, -10px, 0) scale(0.985);
   border-radius: 30px;
-  background: rgba(253, 252, 252, 0.58);
-  border: 1px solid rgba(255, 255, 255, 0.52);
-  box-shadow: 0 18px 40px -28px rgba(15, 23, 42, 0.24);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  background: rgba(253, 252, 252, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 18px 40px -28px rgba(15, 23, 42, 0.24),
+    0 1px 0 rgba(255, 255, 255, 0.75) inset;
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
   opacity: 0;
   pointer-events: none;
   transition:
@@ -345,6 +350,7 @@ html.js .hero-email-form {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 2147483647;
 }
 
 .hero-nav.is-pinned::before {
@@ -354,7 +360,7 @@ html.js .hero-email-form {
 
 .hero-nav-inner {
   position: relative;
-  z-index: 1;
+  z-index: 1001;
   max-width: 1440px;
   padding-top:    calc(24 * var(--hs-w) / 1440);
   padding-right:  calc(32 * var(--hs-w) / 1440);
@@ -922,6 +928,8 @@ html.js .hero-email-form {
   background: #F5F3F1;
   font-family: "Inter", "Inter Tight", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
   color: #000;
+  position: relative;
+  z-index: 1;
 }
 
 .feature-block {
@@ -1057,6 +1065,30 @@ html.js .hero-email-form {
   }
 
   .feature-parallax-scene .feature-text {
+    top: calc(304 * var(--fs-w) / 1440);
+  }
+
+  .feature-parallax-scene .feature-mock {
+    top: calc(156 * var(--fs-w) / 1440);
+  }
+
+  .feature-block-1.feature-parallax-scene .feature-1-leaf {
+    top: calc(-36 * var(--fs-w) / 1440);
+  }
+
+  .feature-block-2.feature-parallax-scene .feature-2-leaf {
+    top: calc(46 * var(--fs-w) / 1440);
+  }
+
+  .feature-block-3.feature-parallax-scene .feature-3-leaf {
+    top: calc(74 * var(--fs-w) / 1440);
+  }
+
+  .feature-block-3.feature-parallax-scene .feature-3-blob {
+    top: calc(672 * var(--fs-w) / 1440);
+  }
+
+  .feature-parallax-scene .feature-text {
     opacity: var(--feature-copy-progress);
     filter: blur(calc((1 - var(--feature-copy-progress)) * 12px));
     transform: translate3d(0, calc((1 - var(--feature-copy-progress)) * 64px), 0);
@@ -1181,6 +1213,8 @@ html.js .hero-email-form {
   background: #FDFCFC;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Inter Tight", sans-serif;
   color: #000;
+  position: relative;
+  z-index: 1;
 }
 
 .platform-stage {
@@ -1251,6 +1285,8 @@ html.js .hero-email-form {
   background: linear-gradient(180deg, #FDFCFC 0%, #F5F3F1 100%);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Inter Tight", sans-serif;
   color: #000;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-stage {
@@ -1388,6 +1424,8 @@ html.js .hero-email-form {
   background: #000;
   color: #FFF;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Inter Tight", sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 .site-footer-shell {
